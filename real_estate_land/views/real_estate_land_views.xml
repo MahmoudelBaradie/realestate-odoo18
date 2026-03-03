@@ -1,0 +1,53 @@
+<odoo>
+    <record id="view_real_estate_land_tree" model="ir.ui.view">
+        <field name="name">real.estate.land.tree</field>
+        <field name="model">real.estate.land</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="area"/>
+                <field name="area_uom"/>
+                <field name="area_sqm"/>
+                <field name="total_land_cost"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_real_estate_land_form" model="ir.ui.view">
+        <field name="name">real.estate.land.form</field>
+        <field name="model">real.estate.land</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="action_capitalize" type="object" string="Capitalize" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="location"/>
+                        <field name="area"/>
+                        <field name="area_uom"/>
+                        <field name="area_sqm" readonly="1"/>
+                        <field name="purchase_price"/>
+                        <field name="additional_cost"/>
+                        <field name="total_land_cost" readonly="1"/>
+                        <field name="payment_method"/>
+                        <field name="partner_id"/>
+                        <field name="analytic_account_id" readonly="1"/>
+                        <field name="move_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_real_estate_land" model="ir.actions.act_window">
+        <field name="name">Land Assets</field>
+        <field name="res_model">real.estate.land</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_real_estate_land_root" name="Real Estate" sequence="10"/>
+    <menuitem id="menu_real_estate_land" name="Land Management" parent="menu_real_estate_land_root" action="action_real_estate_land" sequence="10"/>
+</odoo>

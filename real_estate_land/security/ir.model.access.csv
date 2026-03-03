@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_real_estate_land_manager,access.real.estate.land.manager,model_real_estate_land,real_estate_security.group_real_estate_project_manager,1,1,1,0
+access_real_estate_land_accountant,access.real.estate.land.accountant,model_real_estate_land,real_estate_security.group_real_estate_accountant,1,0,0,0

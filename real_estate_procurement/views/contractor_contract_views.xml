@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_real_estate_contractor_tree" model="ir.ui.view">
+        <field name="name">real.estate.contractor.tree</field>
+        <field name="model">real.estate.contractor.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="partner_id"/>
+                <field name="progress_amount"/>
+                <field name="retention_amount"/>
+                <field name="payable_amount"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_real_estate_contractor_form" model="ir.ui.view">
+        <field name="name">real.estate.contractor.form</field>
+        <field name="model">real.estate.contractor.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_post_progress" type="object" string="Post Progress Billing" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="project_id"/>
+                        <field name="partner_id"/>
+                        <field name="contract_value"/>
+                        <field name="retention_percentage"/>
+                        <field name="progress_amount"/>
+                        <field name="retention_amount" readonly="1"/>
+                        <field name="payable_amount" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_real_estate_contractor" model="ir.actions.act_window">
+        <field name="name">Contractors</field>
+        <field name="res_model">real.estate.contractor.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_real_estate_contractor" name="Procurement & Contractors" parent="real_estate_land.menu_real_estate_land_root" action="action_real_estate_contractor" sequence="60"/>
+</odoo>
