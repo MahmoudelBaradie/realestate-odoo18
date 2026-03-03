@@ -1,0 +1,10 @@
+<odoo>
+    <record id="ir_cron_real_estate_rental_entries" model="ir.cron">
+        <field name="name">Generate Rental Accounting Entries</field>
+        <field name="model_id" ref="model_real_estate_rental_contract"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_generate_rent_entries()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>

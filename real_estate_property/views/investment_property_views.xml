@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_real_estate_property_tree" model="ir.ui.view">
+        <field name="name">real.estate.property.tree</field>
+        <field name="model">real.estate.investment.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="capitalization_value"/>
+                <field name="occupancy_rate"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_real_estate_property" model="ir.actions.act_window">
+        <field name="name">Investment Properties</field>
+        <field name="res_model">real.estate.investment.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_real_estate_property" name="Property Management" parent="real_estate_land.menu_real_estate_land_root" action="action_real_estate_property" sequence="70"/>
+</odoo>

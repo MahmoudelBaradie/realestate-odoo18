@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_real_estate_sale_sales,access.real.estate.sale.sales,model_real_estate_sale,real_estate_security.group_real_estate_sales_manager,1,1,1,0
+access_real_estate_sale_accountant,access.real.estate.sale.accountant,model_real_estate_sale,real_estate_security.group_real_estate_accountant,1,0,0,0

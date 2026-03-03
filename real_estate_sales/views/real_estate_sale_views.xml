@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_real_estate_sale_tree" model="ir.ui.view">
+        <field name="name">real.estate.sale.tree</field>
+        <field name="model">real.estate.sale</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="unit_id"/>
+                <field name="contract_value"/>
+                <field name="margin"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_real_estate_sale_form" model="ir.ui.view">
+        <field name="name">real.estate.sale.form</field>
+        <field name="model">real.estate.sale</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_reserve" type="object" string="Reserve" invisible="state != 'draft'"/>
+                    <button name="action_confirm_sale" type="object" string="Confirm Sale" invisible="state not in ['draft','reserved']" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="unit_id"/>
+                        <field name="contract_value"/>
+                        <field name="cost_value" readonly="1"/>
+                        <field name="margin" readonly="1"/>
+                        <field name="installment_count"/>
+                        <field name="delivery_status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_real_estate_sale" model="ir.actions.act_window">
+        <field name="name">Unit Sales</field>
+        <field name="res_model">real.estate.sale</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_real_estate_sale" name="Sales" parent="real_estate_land.menu_real_estate_land_root" action="action_real_estate_sale" sequence="40"/>
+</odoo>

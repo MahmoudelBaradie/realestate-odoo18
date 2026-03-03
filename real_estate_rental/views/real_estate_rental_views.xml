@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_real_estate_rental_tree" model="ir.ui.view">
+        <field name="name">real.estate.rental.tree</field>
+        <field name="model">real.estate.rental.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="tenant_id"/>
+                <field name="unit_id"/>
+                <field name="rent_value"/>
+                <field name="next_invoice_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_real_estate_rental_form" model="ir.ui.view">
+        <field name="name">real.estate.rental.form</field>
+        <field name="model">real.estate.rental.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_activate" type="object" string="Activate" invisible="state != 'draft'" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tenant_id"/>
+                        <field name="unit_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="rent_value"/>
+                        <field name="billing_cycle"/>
+                        <field name="security_deposit"/>
+                        <field name="next_invoice_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_real_estate_rental" model="ir.actions.act_window">
+        <field name="name">Rental Contracts</field>
+        <field name="res_model">real.estate.rental.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_real_estate_rental" name="Rental" parent="real_estate_land.menu_real_estate_land_root" action="action_real_estate_rental" sequence="50"/>
+</odoo>

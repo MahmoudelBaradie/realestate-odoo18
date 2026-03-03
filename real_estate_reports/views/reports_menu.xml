@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_real_estate_analytic_lines" model="ir.actions.act_window">
+        <field name="name">Analytic Cost Explorer</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="domain">[('account_id','!=',False)]</field>
+    </record>
+    <menuitem id="menu_real_estate_reports" name="Reports" parent="real_estate_land.menu_real_estate_land_root" sequence="80"/>
+    <menuitem id="menu_real_estate_analytic_lines" name="Budget vs Actual" parent="menu_real_estate_reports" action="action_real_estate_analytic_lines"/>
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+    <record id="res_config_settings_view_form_real_estate" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.real.estate</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='account']/block[last()]" position="after">
+                <block title="Real Estate Accounting">
+                    <setting string="Land Asset Account"><field name="re_land_asset_account_id"/></setting>
+                    <setting string="Cash/Bank Clearing Account"><field name="re_cash_bank_account_id"/></setting>
+                    <setting string="WIP Account"><field name="re_wip_account_id"/></setting>
+                    <setting string="Inventory Units Account"><field name="re_inventory_account_id"/></setting>
+                    <setting string="Investment Property Account"><field name="re_investment_property_account_id"/></setting>
+                    <setting string="Cost of Sales Account"><field name="re_cost_of_sales_account_id"/></setting>
+                    <setting string="Sales Revenue Account"><field name="re_sales_revenue_account_id"/></setting>
+                    <setting string="Rental Revenue Account"><field name="re_rental_revenue_account_id"/></setting>
+                    <setting string="Security Deposit Account"><field name="re_security_deposit_account_id"/></setting>
+                    <setting string="Retention Payable Account"><field name="re_retention_payable_account_id"/></setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
